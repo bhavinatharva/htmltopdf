@@ -1,15 +1,16 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 export type RootStackParamList = {
-  HTMLToPDF: {pdfFile: string};
+  ProductList: {pdfFile: string};
   ViewPDFScreen: {pdfFile: string};
+  AddProduct: undefined;
 };
 
 export type ViewPDFScreenProps = NativeStackScreenProps<
   RootStackParamList,
   'ViewPDFScreen'
 >;
-export type HTMLToPDFProps = NativeStackScreenProps<
+export type ProductListScreenProps = NativeStackScreenProps<
   RootStackParamList,
-  'HTMLToPDF'
+  'ProductList'
 >;
