@@ -7,7 +7,7 @@ import {postService} from '../services';
 import Constants from '../services/Constants';
 import {Snackbar} from 'react-native-paper';
 import {AddProductScreenProps} from '../navigationTypes';
-
+import i18n from 'i18next';
 const AddProductScreen: React.FC<AddProductScreenProps> = ({navigation}) => {
   const descriptionRef = createRef<any>();
   const quantityRef = createRef<any>();
@@ -74,7 +74,7 @@ const AddProductScreen: React.FC<AddProductScreenProps> = ({navigation}) => {
     <View style={[styles.container, styles.padding20]}>
       <CustomInput
         inputRef={descriptionRef}
-        label="Description"
+        label={i18n.t('label.description')}
         value={description}
         onChangeValue={value => setDescription(value)}
         containerInputStyle={styles.marginBottom15}
@@ -82,7 +82,7 @@ const AddProductScreen: React.FC<AddProductScreenProps> = ({navigation}) => {
       />
       <CustomInput
         inputRef={quantityRef}
-        label="Quantity"
+        label={i18n.t('label.quantity')}
         value={quantity}
         onChangeValue={value => setQuantity(value)}
         containerInputStyle={styles.marginBottom15}
@@ -91,7 +91,7 @@ const AddProductScreen: React.FC<AddProductScreenProps> = ({navigation}) => {
       />
       <CustomInput
         inputRef={unitPriceRef}
-        label="Unit Price"
+        label={i18n.t('label.unit_price')}
         value={unitPrice}
         onChangeValue={value => setUnitPrice(value)}
         containerInputStyle={styles.marginBottom15}
@@ -99,7 +99,7 @@ const AddProductScreen: React.FC<AddProductScreenProps> = ({navigation}) => {
         error={error.unitPrice !== undefined}
       />
       <CustomInput
-        label="Total"
+        label={i18n.t('label.total')}
         value={total}
         onChangeValue={value => setTotal(value)}
         keyboardType="numeric"
