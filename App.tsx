@@ -53,6 +53,10 @@ const App = () => {
             <Stack.Screen
               name="CalculateAverage"
               component={CalculateAverageScreen}
+              options={{
+                headerTitle: i18n.t('label.calculateaverage'),
+                headerTitleAlign: 'left',
+              }}
             />
             <Stack.Screen
               name="AddProduct"

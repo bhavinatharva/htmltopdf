@@ -20,3 +20,11 @@ export type AddProductScreenProps = NativeStackScreenProps<
   RootStackParamList,
   'AddProduct'
 >;
+export type CalculateAverageScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  'CalculateAverage'
+>;
+export type SettingsScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  'Settings'
+>;
