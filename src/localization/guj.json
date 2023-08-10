@@ -1,0 +1,18 @@
+{
+    "label": {
+        "product_list": "ઉત્પાદન યાદી",
+        "view_invoice": "ઇન્વોઇસ જુઓ",
+        "add_product": "ઉત્પાદન ઉમેરો",
+        "no": "ના",
+        "description": "વર્ણન",
+        "quantity": "જથ્થો",
+        "unit_price": "એકમ કિંમત",
+        "total": "કુલ",
+        "sub_total": "પેટા કુલ",
+        "tax": "કર"
+    },
+    "button": {
+        "create_invoice": "ઇન્વોઇસ બનાવો",
+        "add_product": "ઉત્પાદન ઉમેરો"
+    }
+}

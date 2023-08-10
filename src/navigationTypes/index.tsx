@@ -5,6 +5,7 @@ export type RootStackParamList = {
   ViewInvoce: {pdfFile: string};
   AddProduct: undefined;
   CalculateAverage: undefined;
+  Settings: undefined;
 };
 
 export type ViewInvoceScreenProps = NativeStackScreenProps<

@@ -9,7 +9,8 @@
         "unit_price": "Unit Price",
         "total": "Total",
         "sub_total": "Sub Total",
-        "tax": "Tax"
+        "tax": "Tax",
+        "settings": "Settings"
     },
     "button": {
         "create_invoice": "Create Invoice",
