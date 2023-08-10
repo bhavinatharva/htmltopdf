@@ -1,0 +1,18 @@
+{
+    "label": {
+        "product_list": "Product List",
+        "view_invoice": "View Invoice",
+        "add_product": "Add Product",
+        "no": "No",
+        "description": "Description",
+        "quantity": "Quantity",
+        "unit_price": "Unit Price",
+        "total": "Total",
+        "sub_total": "Sub Total",
+        "tax": "Tax"
+    },
+    "button": {
+        "create_invoice": "Create Invoice",
+        "add_product": "Add Product"
+    }
+}

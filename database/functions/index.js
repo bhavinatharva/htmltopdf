@@ -1,20 +1,8 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
-
 const {onRequest} = require('firebase-functions/v2/https');
 const admin = require('firebase-admin');
 admin.initializeApp({
   databaseURL: 'https://fir-demo-7f64b-default-rtdb.firebaseio.com',
 });
-
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
 
 exports.doPostInvoice = onRequest(async (request, response) => {
   try {
@@ -22,13 +10,11 @@ exports.doPostInvoice = onRequest(async (request, response) => {
       response.status(403).send({message: 'Get Method is not allowed'});
       return;
     }
-    let no = request.body.no;
     let description = request.body.description;
     let quantity = request.body.quantity;
     let unitPrice = request.body.unitPrice;
     let total = request.body.total;
     if (
-      no === undefined &&
       description === undefined &&
       quantity === undefined &&
       unitPrice === undefined &&
@@ -36,7 +22,6 @@ exports.doPostInvoice = onRequest(async (request, response) => {
     ) {
       response.status(200).send({
         errors: [
-          {no: 'Please enter no feild'},
           {description: 'Please enter description feild'},
           {quantity: 'Please enter quantity feild'},
           {unitPrice: 'Please enter unitPrice feild'},
@@ -45,12 +30,7 @@ exports.doPostInvoice = onRequest(async (request, response) => {
       });
       return;
     }
-    if (no === undefined) {
-      response.status(200).send({
-        errors: [{no: 'Please enter no feild'}],
-      });
-      return;
-    }
+
     if (description === undefined) {
       response.status(200).send({
         errors: [{description: 'Please enter description feild'}],

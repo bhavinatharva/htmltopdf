@@ -1,9 +1,9 @@
 import React from 'react';
 import {StyleSheet, Dimensions, View} from 'react-native';
-import {ViewPDFScreenProps} from '../navigationTypes';
+import {ViewInvoceScreenProps} from '../navigationTypes';
 import {WebView} from 'react-native-webview';
 
-const ViewPDFScreen: React.FC<ViewPDFScreenProps> = ({route}) => {
+const ViewInvoceScreen: React.FC<ViewInvoceScreenProps> = ({route}) => {
   const source = {
     uri: route.params.pdfFile,
     cache: true,
@@ -34,4 +34,4 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height,
   },
 });
-export default ViewPDFScreen;
+export default ViewInvoceScreen;

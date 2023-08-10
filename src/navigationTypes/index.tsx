@@ -2,15 +2,20 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 export type RootStackParamList = {
   ProductList: {pdfFile: string};
-  ViewPDFScreen: {pdfFile: string};
+  ViewInvoce: {pdfFile: string};
   AddProduct: undefined;
+  CalculateAverage: undefined;
 };
 
-export type ViewPDFScreenProps = NativeStackScreenProps<
+export type ViewInvoceScreenProps = NativeStackScreenProps<
   RootStackParamList,
-  'ViewPDFScreen'
+  'ViewInvoce'
 >;
 export type ProductListScreenProps = NativeStackScreenProps<
   RootStackParamList,
   'ProductList'
+>;
+export type AddProductScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  'AddProduct'
 >;

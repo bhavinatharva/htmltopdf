@@ -9,6 +9,7 @@ export interface InvoiceItem {
 const doGenerateHTML = (
   list: InvoiceItem[],
   subtotal: string,
+  tax: string,
   total: string,
 ) => {
   return `<!DOCTYPE html>
@@ -126,7 +127,7 @@ const doGenerateHTML = (
           </table>
           <div class="total">
               <p><strong>Subtotal:</strong> $${subtotal}</p>
-              <p><strong>Tax (10%):</strong> $17.50</p>
+              <p><strong>Tax (0%):</strong> ${tax}</p>
               <p><strong>Total Amount:</strong> $${total}</p>
           </div>
           <div class="signature">

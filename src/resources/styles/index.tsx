@@ -12,9 +12,12 @@ const styles = StyleSheet.create({
   marginEnd15: {marginEnd: 15},
   marginBottom15: {marginBottom: 15},
   marginBottom20: {marginBottom: 20},
+  marginBottom30: {marginBottom: 30},
   flex1: {flex: 1},
   row: {flexDirection: 'row'},
   rowCenter: {flexDirection: 'row', alignItems: 'center'},
   justifySpaceBetween: {justifyContent: 'space-between'},
+  center: {justifyContent: 'center', alignItems: 'center'},
+  fontBold: {fontWeight: 'bold'},
 });
 export default styles;
