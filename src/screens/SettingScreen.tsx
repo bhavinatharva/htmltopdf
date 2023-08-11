@@ -5,9 +5,12 @@ import styles from '../resources/styles';
 import i18n from '../localization';
 import CustomInput from '../components/CustomInput';
 import {SettingsScreenProps} from '../navigationTypes';
+import {useLanguage} from '../localization/LanguageProvider';
+
 const SettingScreen: React.FC<SettingsScreenProps> = ({navigation}) => {
   const [showDropDown, setShowDropDown] = useState(false);
-  const [language, setLanguage] = useState<string>('');
+  const {language, setLanguage} = useLanguage();
+  const [languageValue, setLanguageValue] = useState<string>(language);
   const languages = [
     {
       label: 'English',
@@ -19,20 +22,19 @@ const SettingScreen: React.FC<SettingsScreenProps> = ({navigation}) => {
     },
   ];
   useEffect(() => {
-    i18n.changeLanguage(language);
-    setLanguage(i18n.language);
-  }, [language]);
+    setLanguage(languageValue);
+  }, [languageValue, setLanguage]);
   return (
     <View style={[styles.container, styles.padding20]}>
       <View style={styles.marginBottom15}>
         <DropDown
-          label={'Language'}
+          label={i18n.t('label.language')}
           mode={'outlined'}
           visible={showDropDown}
           showDropDown={() => setShowDropDown(true)}
           onDismiss={() => setShowDropDown(false)}
-          value={language}
-          setValue={setLanguage}
+          value={languageValue}
+          setValue={setLanguageValue}
           list={languages}
         />
       </View>

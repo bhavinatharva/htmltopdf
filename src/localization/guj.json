@@ -11,14 +11,15 @@
         "sub_total": "પેટા કુલ",
         "tax": "કર",
         "settings": "સેટિંગ્સ",
-        "calculateaverage": "સરેરાશની ગણતરી કરો",
+        "calculateaverage": "શેર સરેરાશની ગણતરી કરો",
         "TotalCostOfPreviousShares": "અગાઉના શેરની કુલ કિંમત",
         "TotalCostOfNewShares": "નવા શેરની કુલ કિંમત",
         "TotalNumberOfPreviousShares": "અગાઉના શેરની કુલ સંખ્યા",
         "TotalNumberOfNewShares": "નવા શેર્સની કુલ સંખ્યા",
         "AverageCost": "સરેરાશ કિંમત",
         "Note": "નૉૅધ",
-        "calculateaverageMsg.": "આ ફંક્શન નવા હસ્તગત શેર માટે સરેરાશ મૂલ્યની ગણતરી કરે છે."
+        "calculateaverageMsg": "આ ફંક્શન નવા હસ્તગત શેર માટે સરેરાશ મૂલ્યની ગણતરી કરે છે.",
+        "language": "ભાષા"
     },
     "button": {
         "create_invoice": "ઇન્વોઇસ બનાવો",

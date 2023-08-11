@@ -11,14 +11,15 @@
         "sub_total": "Sub Total",
         "tax": "Tax",
         "settings": "Settings",
-        "calculateaverage": "Calculate Average",
+        "calculateaverage": "Calculate share average",
         "TotalCostOfPreviousShares": "Total Cost of Previous Shares",
         "TotalCostOfNewShares": "Total Cost of New Shares",
         "TotalNumberOfPreviousShares": "Total Number of Previous Shares",
         "TotalNumberOfNewShares": "Total Number of New Shares",
         "AverageCost": "Average Cost",
         "Note": "Note",
-        "calculateaverageMsg": "This function computes the average value for newly acquired shares."
+        "calculateaverageMsg": "This function computes the average value for newly acquired shares.",
+        "language": "Language"
     },
     "button": {
         "create_invoice": "Create Invoice",
