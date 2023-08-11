@@ -19,5 +19,8 @@ const styles = StyleSheet.create({
   justifySpaceBetween: {justifyContent: 'space-between'},
   center: {justifyContent: 'center', alignItems: 'center'},
   fontBold: {fontWeight: 'bold'},
+  fontItalic: {fontStyle: 'italic'},
+  fontSize12: {fontSize: 12},
+  fontSize14: {fontSize: 14},
 });
 export default styles;

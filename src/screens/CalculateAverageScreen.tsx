@@ -1,117 +1,101 @@
-import {View, Text} from 'react-native';
-import React, {createRef, useState} from 'react';
+import {View} from 'react-native';
+import React, {createRef, useEffect, useState} from 'react';
 import {CalculateAverageScreenProps} from '../navigationTypes';
 import CustomInput from '../components/CustomInput';
 import styles from '../resources/styles';
 import i18n from 'i18next';
-import CustomButton from '../components/CustomButton';
-import {Snackbar} from 'react-native-paper';
+import {doCalculateAvg} from '../utils/calculations';
+import {Text} from 'react-native-paper';
 
 const CalculateAverageScreen: React.FC<CalculateAverageScreenProps> = ({
   navigation,
 }) => {
-  const descriptionRef = createRef<any>();
-  const quantityRef = createRef<any>();
-  const unitPriceRef = createRef<any>();
+  const totalCostOfPreviousSharesRef = createRef<any>();
+  const totalCostOfNewSharesRef = createRef<any>();
+  const totalNumberOfPreviousSharesRef = createRef<any>();
+  const totalNumberOfNewSharesRef = createRef<any>();
 
-  const [isLoading, setLoading] = useState(false);
-  const [isVisible, setVisible] = useState(false);
-  const [snackBarMessage, sertSnackBarMessage] = useState('');
-  const [description, setDescription] = useState('');
-  const [quantity, setQuantity] = useState('');
-  const [unitPrice, setUnitPrice] = useState('');
-  const [total, setTotal] = useState('');
-  const [error, setError] = useState<{
-    description?: string;
-    quantity?: string;
-    unitPrice?: string;
-  }>({});
-  const doPressSubmit = async () => {
-    if (description.trim() === '') {
-      setError({description: 'Enter Description'});
-      descriptionRef.current.focus();
-      return;
+  const [totalCostOfPreviousShares, setTotalCostOfPreviousShares] =
+    useState('');
+  const [totalCostOfNewShares, setTotalCostOfNewShares] = useState('');
+  const [totalNumberOfPreviousShares, setTotalNumberOfPreviousShares] =
+    useState('');
+  const [totalNumberOfNewShares, setTotalNumberOfNewShares] = useState('');
+  const [averageCost, setAverageCost] = useState('');
+
+  useEffect(() => {
+    if (
+      totalCostOfPreviousShares.trim() !== '' &&
+      totalCostOfNewShares.trim() !== '' &&
+      totalNumberOfPreviousShares.trim() !== '' &&
+      totalNumberOfNewShares.trim() !== ''
+    ) {
+      let average = doCalculateAvg(
+        parseInt(totalCostOfPreviousShares),
+        parseInt(totalCostOfNewShares),
+        parseInt(totalNumberOfPreviousShares),
+        parseInt(totalNumberOfNewShares),
+      );
+      console.log('average', average);
+      setAverageCost(average.toFixed(2));
     }
-    if (quantity.trim() === '') {
-      setError({quantity: 'Enter Quanityt'});
-      setVisible(true);
-      return;
-    }
-    if (unitPrice.trim() === '') {
-      setError({unitPrice: 'Enter Unit Price'});
-      unitPriceRef.current.focus();
-      return;
-    }
-    setError({});
-    setVisible(false);
-    unitPriceRef.current.blur();
-    setLoading(true);
-  };
+  }, [
+    totalCostOfPreviousShares,
+    totalCostOfNewShares,
+    totalNumberOfPreviousShares,
+    totalNumberOfNewShares,
+  ]);
+
   return (
     <View style={[styles.container, styles.padding20]}>
       <CustomInput
-        inputRef={descriptionRef}
+        inputRef={totalCostOfPreviousSharesRef}
         label={i18n.t('label.TotalCostOfPreviousShares')}
-        value={description}
-        onChangeValue={value => setDescription(value)}
+        value={totalCostOfPreviousShares}
+        onChangeValue={value => setTotalCostOfPreviousShares(value)}
         containerInputStyle={styles.marginBottom15}
-        error={error.description !== undefined}
         keyboardType="numeric"
       />
       <CustomInput
-        inputRef={quantityRef}
+        inputRef={totalCostOfNewSharesRef}
         label={i18n.t('label.TotalCostOfNewShares')}
-        value={quantity}
-        onChangeValue={value => setQuantity(value)}
+        value={totalCostOfNewShares}
+        onChangeValue={value => setTotalCostOfNewShares(value)}
         containerInputStyle={styles.marginBottom15}
         keyboardType="numeric"
-        error={error.quantity !== undefined}
       />
       <CustomInput
-        inputRef={unitPriceRef}
+        inputRef={totalNumberOfPreviousSharesRef}
         label={i18n.t('label.TotalNumberOfPreviousShares')}
-        value={unitPrice}
-        onChangeValue={value => setUnitPrice(value)}
+        value={totalNumberOfPreviousShares}
+        onChangeValue={value => setTotalNumberOfPreviousShares(value)}
         containerInputStyle={styles.marginBottom15}
         keyboardType="numeric"
-        error={error.unitPrice !== undefined}
       />
 
       <CustomInput
         label={i18n.t('label.TotalNumberOfNewShares')}
-        inputRef={unitPriceRef}
-        value={unitPrice}
-        onChangeValue={value => setUnitPrice(value)}
+        inputRef={totalNumberOfNewSharesRef}
+        value={totalNumberOfNewShares}
+        onChangeValue={value => setTotalNumberOfNewShares(value)}
         containerInputStyle={styles.marginBottom15}
         keyboardType="numeric"
-        error={error.unitPrice !== undefined}
       />
       <CustomInput
         label={i18n.t('label.AverageCost')}
-        value={total}
-        onChangeValue={value => setTotal(value)}
+        value={averageCost}
+        onChangeValue={value => setAverageCost(value)}
         keyboardType="numeric"
         disabled
+        containerInputStyle={styles.marginBottom15}
       />
-      <View style={styles.flex1} />
-      <CustomButton
-        loading={isLoading}
-        containerButtonStyle={styles.marginBottom15}
-        label={isLoading ? '' : 'Submit'}
-        onPress={() => doPressSubmit()}
-        disabled={isLoading}
-      />
-      <Snackbar
-        wrapperStyle={{alignSelf: 'center'}}
-        duration={2000}
-        onDismiss={() => {
-          sertSnackBarMessage('');
-          setVisible(false);
-          navigation.goBack();
-        }}
-        visible={isVisible}>
-        {snackBarMessage}
-      </Snackbar>
+      <Text style={[styles.fontItalic, styles.fontBold]}>
+        {i18n.t('label.Note')}
+        {' : '}
+      </Text>
+      <Text style={styles.fontSize12}>
+        {i18n.t('label.calculateaverageMsg')}
+      </Text>
     </View>
   );
 };

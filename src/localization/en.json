@@ -16,7 +16,9 @@
         "TotalCostOfNewShares": "Total Cost of New Shares",
         "TotalNumberOfPreviousShares": "Total Number of Previous Shares",
         "TotalNumberOfNewShares": "Total Number of New Shares",
-        "AverageCost":"Average Cost"
+        "AverageCost": "Average Cost",
+        "Note": "Note",
+        "calculateaverageMsg": "This function computes the average value for newly acquired shares."
     },
     "button": {
         "create_invoice": "Create Invoice",
